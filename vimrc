@@ -111,7 +111,11 @@ au BufWinEnter ?* silent loadview
 " set autochdir
 
 " Set the taglist window to show on the right
-let Tlist_Use_Right_Window = 1
+"let Tlist_Use_Right_Window = 1
 " Set to exit vim if only the taglist window is left
-let Tlist_Exit_OnlyWindow = 1
+"let Tlist_Exit_OnlyWindow = 1
+
+" Let SuperTab decide which completion mode to use to play well with
+" OmniCompletion
+let g:SuperTabDefaultCompletionType = "context"
 
