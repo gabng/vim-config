@@ -170,8 +170,8 @@ set showmatch                   " Enable show matching brackets
 set relativenumber
 set undofile                    " Make undo information persistent so it can be used after closing and reopening a file
 set undodir=~/tmp,/tmp
-set backupdir=~/tmp,/tmp        " Set backup file directory (~)
-set directory=~/tmp,/tmp        " Set swap file directory (.swp)
+set backupdir=$TEMP,~/tmp,/tmp  " Set backup file directory (~)
+set directory=$TEMP,~/tmp,/tmp  " Set swap file directory (.swp)
 "set backup
 set pastetoggle=<F2>            " Use F2 to switch to paste mode for pasting
 
