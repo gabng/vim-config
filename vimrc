@@ -179,7 +179,7 @@ set pastetoggle=<F2>            " Use F2 to switch to paste mode for pasting
 nnoremap <leader>i :set list!<cr>
 
 " Toggle line numbers
-nnoremap <leader>N :setlocal number!<cr>
+nnoremap <leader>N :setlocal number!<bar>setlocal relativenumber!<cr>
 
 " Remap <F1> help key to <ESC> in insert and command line modes
 noremap! <F1> <ESC>
