@@ -126,6 +126,7 @@ set switchbuf=usetab    " Set switch buffer to search for opened files in existi
 set foldmethod=syntax   " Set fold method to follow the file type syntax
 set fdls=9999           " Set starting fold level when opening a buffer
 " Set vim to save and restore the fold level when a file is opened and closed
+set viewdir=$HOME/.vimviews// " Set directory for saving view files
 if has("autocmd")
     autocmd BufWritePost,BufLeave,WinLeave ?* mkview
     autocmd BufWinEnter ?* silent loadview
