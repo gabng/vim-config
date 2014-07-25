@@ -156,12 +156,16 @@ set wildmode=list:longest,full  " Return longest command completion with list of
 " Ignore these filenames during enhanced command line completion.
 "set wildignore+=*.aux,*.out,*.toc " LaTeX intermediate files
 set wildignore+=*.jpg,*.bmp,*.gif " binary images
-"set wildignore+=*.luac         " Lua byte code
+"set wildignore+=*.luac          " Lua byte code
 set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
 set wildignore+=*.pyc           " Python byte code
 "set wildignore+=*.spl          " compiled spelling word lists
 set wildignore+=*.sw?,*~$       " Vim swap files
-set clipboard=unnamedplus       " Set yanking to '+' register which is the clipbard to allow interaction with other apps
+if has('unnamedplus')
+    set clipboard=unnamedplus   " Set yanking to '+' register which is the clipbard to allow interaction with other apps
+else
+    set clipboard=unnamed       " Set yanking to the unamed register
+endif
 set nomodeline                  " Disable mode lines (security measure)
 set showmatch                   " Enable show matching brackets
 "set nu                         " Turn line numbering on
