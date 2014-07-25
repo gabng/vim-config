@@ -212,3 +212,8 @@ let NERDTreeShowHidden=1
 " Let SuperTab decide which completion mode to use to play well with OmniCompletion
 let g:SuperTabDefaultCompletionType = "context"
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tagbar
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <F8> :TagbarToggle<cr>
+
