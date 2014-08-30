@@ -73,7 +73,11 @@ set completeopt=menuone,longest,preview " Popup menu even when there is one matc
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark " adapt colours for background
 if has("gui_running")
-    set guifont=Monospace\ 8
+    if has("win32") || has("win64")
+        set guifont=Consolas:h9
+    else
+        set guifont=Monospace\ 8
+    endif
     set lines=100   " height = 100 lines
     colors wombat
 else
@@ -172,6 +176,7 @@ set showmatch                   " Enable show matching brackets
 "set nobackup                   " Do not write backup files (~)
 "set noswapfile                 " Do not write swap files (.swp)
 "set autochdir                  " Set automatically change to directory of current buffer
+set number
 set relativenumber
 set undofile                    " Make undo information persistent so it can be used after closing and reopening a file
 set undodir=~/tmp,/tmp
@@ -193,6 +198,23 @@ noremap! <F1> <ESC>
 " ctags
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 set tags=./tags;/   " Look in current directory for "tags", then work up tree to root until one is found
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Cscope
+" See http://nitin.mydoast.com/my-vimrc-file-for-windows-with-cscope-plugin/
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has("cscope")
+    set cscopetag       " use both cscope and ctag for ‘ctrl-]’, ‘:ta’, and ‘vim -t’
+    set csto=0          " check cscope for definition of a symbol before checking ctags. Set to 1 to reverse search order
+    set nocscopeverbose " show msg when any other cscope db added
+    if $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    elseif filereadable("cscope.out")
+        cs add cscope.out
+    endif
+    "nmap <F11> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' -exec echo \"{}\" \; > cscope.files<cr>:!cscope -b -q -i cscope.files -f cscope.out<cr>:cs reset<cr>
+    nmap <F11> :!find . -name "*.[c\|h\|cpp\|hpp]" -fprintf cscope.files "\"\%h/\%f\"\n"<cr>:!cscope -b -q -i cscope.files -f cscope.out<cr>:cs reset<cr>
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " Taglist
