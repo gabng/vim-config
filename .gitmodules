@@ -16,3 +16,6 @@
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/CCTree"]
+	path = bundle/CCTree
+	url = http://github.com/hari-rangarajan/CCTree.git
