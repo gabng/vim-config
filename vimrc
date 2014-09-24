@@ -170,6 +170,7 @@ if has('unnamedplus')
 else
     set clipboard=unnamed       " Set yanking to the unamed register
 endif
+set splitbelow                  " Horizontal split windows at bottom
 set nomodeline                  " Disable mode lines (security measure)
 set showmatch                   " Enable show matching brackets
 "set nu                         " Turn line numbering on
@@ -197,10 +198,10 @@ noremap! <F1> <ESC>
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " ctags
 """"""""""""""""""""""""""""""""""""""""""""""""""""
-set tags=./tags;/   " Look in current directory for "tags", then work up tree to root until one is found
+set tags=./tags;/,./tags.linux;/,./tags.windows;/   " Look in current directory for "tags", then work up tree to root until one is found
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
-" Cscope
+" Cscope + CCTree
 " See http://nitin.mydoast.com/my-vimrc-file-for-windows-with-cscope-plugin/
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 if has("cscope")
@@ -209,11 +210,16 @@ if has("cscope")
     set nocscopeverbose " show msg when any other cscope db added
     if $CSCOPE_DB != ""
         cs add $CSCOPE_DB
+        "CCTreeLoadDB $CSCOPE_DB
     elseif filereadable("cscope.out")
         cs add cscope.out
+        "CCTreeLoadDB cscope.out
     endif
-    "nmap <F11> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' -exec echo \"{}\" \; > cscope.files<cr>:!cscope -b -q -i cscope.files -f cscope.out<cr>:cs reset<cr>
-    nmap <F11> :!find . -name "*.[c\|h\|cpp\|hpp]" -fprintf cscope.files "\"\%h/\%f\"\n"<cr>:!cscope -b -q -i cscope.files -f cscope.out<cr>:cs reset<cr>
+    "nmap <F11> :silent !find . -iname "*.c" -o -iname "*.cpp" -o -name "*.h" -o -iname "*.hpp" -fprintf cscope.files "\"\%h/\%f\"\n"<cr>
+    nmap <F11> :silent !find . -iname "*.c" -o -iname "*.cpp" -o -name "*.h" -o -iname "*.hpp" > cscope.files<cr>
+                \:silent !cscope -b -q -i cscope.files -f cscope.out<cr>
+                \:silent cs kill -1<cr>
+                \:silent cs add cscope.out<cr><cr>
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
@@ -232,6 +238,7 @@ let NERDTreeShowHidden=1
 " SuperTab
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " Let SuperTab decide which completion mode to use to play well with OmniCompletion
+"let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 let g:SuperTabDefaultCompletionType = "context"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
