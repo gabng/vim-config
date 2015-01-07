@@ -223,6 +223,14 @@ if has("cscope")
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
+" YouCompleteMe
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ycm_always_populate_location_list = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_extra_conf_globlist = ['~/workspace/*', 'C:\workspace\*']
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Taglist
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 "let Tlist_Use_Right_Window = 1  " Set the taglist window to show on the right
