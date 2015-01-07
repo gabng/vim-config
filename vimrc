@@ -4,13 +4,6 @@
 " This must be first, because it changes other options as a side effect
 set nocompatible
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Configure Pathogen
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-filetype off    " force reloading *after* pathogen loaded
-execute pathogen#infect()
-execute pathogen#helptags()
-
 let mapleader=" "   " Change the mapleader from \ to space
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
