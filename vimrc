@@ -7,6 +7,37 @@ set nocompatible
 let mapleader=" "   " Change the mapleader from \ to space
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure Vundle
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype off
+
+" set the runtime path to include Vundle and initialize
+" Linux setting
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" Windows setting
+" set rtp+=~/vimfiles/bundle/Vundle.vim
+" let path='~/vimfiles/bundle'
+" call vundle#begin(path)
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'tpope/vim-fugitive'
+Plugin 'hari-rangarajan/CCTree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ervandew/supertab'
+Plugin 'majutsushi/tagbar'
+Plugin 'Valloric/ListToggle'
+"Plugin 'Valloric/YouCompleteMe' " Linux
+"Plugin 'file::///~/vimfiles/bundle/vim-ycm-733de48-windows-x86' " Windows
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set vim file access encodings
 " See http://vim.wikia.com/wiki/Working_with_Unicode
 """"""""""""""""""""""""""""""""""""""""""""""""""""
