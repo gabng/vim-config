@@ -67,6 +67,7 @@ endif
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete    " Enable Omni Completion
 set completeopt=menuone,longest,preview " Popup menu even when there is one match, insert the longest common test of all matches
+"set completeopt=menuone,menu,longest
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " Colour
@@ -198,7 +199,10 @@ noremap! <F1> <ESC>
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " ctags
 """"""""""""""""""""""""""""""""""""""""""""""""""""
-set tags=./tags;/,./tags.linux;/,./tags.windows;/   " Look in current directory for "tags", then work up tree to root until one is found
+" Look these tag files in opened file's directory, then work up tree to root until one is found
+set tags=./tags;/
+set tags+=./tags.linux;/
+set tags+=./tags.windows;/
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " Cscope + CCTree
@@ -248,6 +252,9 @@ let NERDTreeShowHidden=1
 " Let SuperTab decide which completion mode to use to play well with OmniCompletion
 "let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabContextDefaultCompletionType = "<c-p>"
+"let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+"let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<c-x><c-o>"]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " Tagbar

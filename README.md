@@ -6,7 +6,7 @@ git clone http://github.com/gabng/vim-config.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 cd .vim
 git submodule init
-git submodule update
+git submodule update --init --recursive
 ```
 
 ## Update all bundled modules
