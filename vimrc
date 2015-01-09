@@ -4,6 +4,8 @@
 " This must be first, because it changes other options as a side effect
 set nocompatible
 
+let mapleader=" "   " Change the mapleader from \ to space
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " Configure Vundle
 """"""""""""""""""""""""""""""""""""""""""""""""""""
@@ -28,6 +30,10 @@ Plugin 'scrooloose/nerdtree'
 "Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
 Plugin 'Valloric/ListToggle'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'mhinz/vim-signify'
 if has('win32') || has('win64')
     Plugin 'vim-ycm-733de48-windows-x86', {'pinned': 1} " Source: https://bitbucket.org/Haroogan/vim-youcompleteme-for-windows/
 else
@@ -37,8 +43,6 @@ endif
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-let mapleader=" "   " Change the mapleader from \ to space
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " Set vim file access encodings
