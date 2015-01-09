@@ -25,7 +25,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'hari-rangarajan/CCTree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
 Plugin 'Valloric/ListToggle'
 if has('win32') || has('win64')
@@ -262,12 +262,6 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_extra_conf_globlist = ['~/workspace/*', 'C:\workspace\*']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
-" Taglist
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let Tlist_Use_Right_Window = 1  " Set the taglist window to show on the right
-"let Tlist_Exit_OnlyWindow = 1   " Set to exit vim if only the taglist window is left
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 let NERDTreeIgnore=['\~$', '^\.git', '\.swp$', '\.DS_Store$']
@@ -278,7 +272,7 @@ let NERDTreeShowHidden=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " Let SuperTab decide which completion mode to use to play well with OmniCompletion
 "let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabDefaultCompletionType = "context"
 "let g:SuperTabContextDefaultCompletionType = "<c-p>"
 "let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
 "let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<c-x><c-o>"]
