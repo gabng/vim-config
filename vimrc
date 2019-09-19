@@ -21,7 +21,7 @@ else
 endif
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'hari-rangarajan/CCTree'
@@ -34,11 +34,9 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'mhinz/vim-signify'
-if has('win32') || has('win64')
-    Plugin 'vim-ycm-733de48-windows-x86', {'pinned': 1} " Source: https://bitbucket.org/Haroogan/vim-youcompleteme-for-windows/
-else
-    Plugin 'Valloric/YouCompleteMe'
-endif
+Plugin 'mfukar/robotframework-vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'pboettch/vim-cmake-syntax'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -54,12 +52,13 @@ if has("multi_byte")
     if &termencoding == ""
         let &termencoding=&encoding
     endif
-    set encoding=utf8
+    set encoding=utf-8
     setglobal fileencoding=utf-8
     "setglobal bomb
     set fileencodings=utf-8,big5,gb18030,gbk,gb2312,enc-kr,utf-bom,ucs-bom,iso8859-1,cp936
     "set tenc=utf8
 endif
+set encoding=utf-8 "YouCompleteMe requires this
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " GNU screen
@@ -101,17 +100,29 @@ set completeopt=menuone,longest,preview " Popup menu even when there is one matc
 "set completeopt=menuone,menu,longest
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
+" GUI size
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has("gui_running")
+    set columns=85
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colour
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark " adapt colours for background
 if has("gui_running")
     if has("win32") || has("win64")
-        set guifont=Consolas:h9
+        set guifont=Anonymice_Powerline:h11
     else
         set guifont=Monospace\ 8
     endif
     set lines=100   " height = 100 lines
     colors wombat
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Airline
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+    let g:airline_powerline_fonts = 1
 else
     if &t_Co == 256
         colors 256_asu1dark
@@ -134,8 +145,8 @@ set ic          " Turn on ignore case while doing search
 set sc          " Turn on smart case, don't ignores case if search pattern contains upper-case
 set so=3        " Set scrolloff to to show number of lines before and after the search match
 "Turn off Vim's default regex characters
-nnoremap / /\v
-vnoremap / /\v
+"nnoremap / /\v
+"vnoremap / /\v
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " Indentation and tab width
@@ -263,7 +274,7 @@ endif
 let g:ycm_always_populate_location_list = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_extra_conf_globlist = ['~/workspace/*', 'C:\workspace\*']
+let g:ycm_extra_conf_globlist = ['~/workspace/*', 'C:\ws\*']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
