@@ -274,7 +274,7 @@ endif
 let g:ycm_always_populate_location_list = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_extra_conf_globlist = ['~/workspace/*', 'C:\ws\*']
+let g:ycm_extra_conf_globlist = ['~/ws/*', 'C:\ws\*']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
